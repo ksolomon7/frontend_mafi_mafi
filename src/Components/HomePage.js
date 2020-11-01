@@ -11,3 +11,5 @@ class HomePage extends React.Component{
 }
 
 export default HomePage
+
+//landing page has to have a carousel for images
