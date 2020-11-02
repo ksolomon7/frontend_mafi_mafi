@@ -1,6 +1,7 @@
 import React from 'react'
+import './App.css'
 import NavBar from './Components/NavBar'
-import HomePage from './Components/HomePage'
+import HomePage from './LandingPage/HomePage'
 import LoginForm from './Components/LoginForm'
 import ProductContainer from './Products/ProductContainer'
 import {Switch, Route} from 'react-router-dom'
@@ -70,13 +71,14 @@ handleLogin=(loginInfo)=>{
 // handle Response
 
 handleResponse=(resp)=>{
+  console.log(resp)
   if(resp.error){
     console.error("Incorrect Username/Password")
   }else{}
   this.setState({
-
+    
   })
-  console.log("In handle Response")
+ 
 
 }
 
