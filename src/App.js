@@ -76,7 +76,10 @@ handleResponse=(resp)=>{
     console.error("Incorrect Username/Password")
   }else{}
   this.setState({
-    
+    token:resp.token,
+    username: resp.user.username,
+    user_current_cart: resp.user.user_current_cart,
+    previous_orders: resp.user.past_orders
   })
  
 
@@ -89,6 +92,7 @@ showProducts=()=>{
 
 
   render(){
+    console.log(this.state)
     return (
       <div className="App">
           <NavBar/>
@@ -96,6 +100,7 @@ showProducts=()=>{
             <Route path="/" exact component={HomePage} />
             <Route path="/login" exact render={this.renderLoginForm}/>
             <Route path="/products" component={this.showProducts}/>
+            <Route path="/cart" component={this.showCart} />
           </Switch>
       </div>
     )

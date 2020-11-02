@@ -4,7 +4,7 @@ class HomePage extends React.Component{
    render(){
        return( 
            <div>
-               HomePage
+               <img src='https://i.imgur.com/Tkk1uLR.png' alt="red mask"/>
            </div>
        )
    }

@@ -10,20 +10,18 @@ class LoginForm extends React.Component{
     }
     
     handleChange=(evt)=>{
-        console.log(evt.target.value)
         this.setState({
             [evt.target.name]:evt.target.value     
         })
     }
 
     handleClick=(evt)=>{
-        evt.preventDefault();
         this.props.handleLogin(this.state)
     }
 
     render() {
         return(
-                    <Form onSubmit={this.handleSubmit}>
+                    <Form>
                       <Form.Input
                         fluid
                         icon="user"
