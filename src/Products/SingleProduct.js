@@ -45,10 +45,7 @@ class SingleProduct extends React.Component{
             </div>
             {/* <Segment.Group piled>
             </Segment.Group> */}
-       
-     
-  
-        
+      
             <Modal
                 onClose={this.handleOnClose}
                 onOpen={this.handleOnOpen}

@@ -1,6 +1,6 @@
 import React from 'react'
 import {Button, Form} from 'semantic-ui-react'
-import {Link} from 'react-router-dom'
+// import {Link} from 'react-router-dom'
 
 class LoginForm extends React.Component{
     
@@ -21,7 +21,7 @@ class LoginForm extends React.Component{
 
     render() {
         return(
-                    <Form>
+                    <Form className="login-form">
                       <Form.Input
                         fluid
                         icon="user"
@@ -42,11 +42,11 @@ class LoginForm extends React.Component{
                         className="auth-input-field"
                       />
               
-                      <Link to="/products">
+                      {/* <Link to="/products"> */}
                         <Button onClick={this.handleClick} color="grey" fluid size="small">
                           Login
                         </Button>
-                      </Link>
+                      {/* </Link> */}
                       </Form>
                     
                 );

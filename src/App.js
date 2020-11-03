@@ -1,10 +1,12 @@
 import React from 'react'
 import './App.css'
-import NavBar from './Components/NavBar'
+import Header from './Components/Header'
 import HomePage from './LandingPage/HomePage'
 import LoginForm from './Components/LoginForm'
 import ProductContainer from './Products/ProductContainer'
-import {Switch, Route} from 'react-router-dom'
+import Dashboard from './Components/Dashboard'
+import Cart from './Checkout/Cart'
+import {Switch, Route, withRouter, Redirect} from 'react-router-dom'
 
 
 
@@ -14,6 +16,7 @@ class App extends React.Component{
     products:[],
     token:"",
     username:"",
+    fullname:"",
     user_current_cart:{
       id:0,
       orders:[]
@@ -44,13 +47,12 @@ class App extends React.Component{
     }
   }
 
-// Render login Form
+
 renderLoginForm=(routerProps)=>{
-  // console.log(routerProps)
   return <LoginForm handleLogin={this.handleLogin}/>
 }
 
-// handleLogin
+
 handleLogin=(loginInfo)=>{
   fetch("http://localhost:3000/login",{
     method: "POST",
@@ -68,43 +70,75 @@ handleLogin=(loginInfo)=>{
   })
 }
 
-// handle Response
 
 handleResponse=(resp)=>{
-  console.log(resp)
   if(resp.error){
     console.error("Incorrect Username/Password")
-  }else{}
-  this.setState({
-    token:resp.token,
-    username: resp.user.username,
-    user_current_cart: resp.user.user_current_cart,
-    previous_orders: resp.user.past_orders
-  })
- 
-
+  }else{
+    localStorage.token=resp.token
+    this.setState({
+      token:resp.token,
+      username: resp.user.username,
+      fullname: resp.user.full_name,
+      user_current_cart: resp.user.user_current_cart,
+      previous_orders: resp.user.past_orders
+    })
+    this.props.history.push("/dashboard")
+  }
 }
 
 showProducts=()=>{
   return <ProductContainer products={this.state.products} />
 }
 
+showDashBoard=()=>{
+  if(this.state.token){
+    return <Dashboard full_name={this.state.fullname} 
+                      pastorders={this.state.previous_orders}
+                      handleLogout={this.handleLogout}/>
+  }else{
+    return <Redirect to="/login"/>
+  }
+}
 
+showCart=()=>{
+  <Cart current_cart={this.user_current_cart} />
+}
+
+
+
+handleLogout=()=>{
+  console.log("in handle logout")
+  this.setState({
+    token:"",
+    username:"",
+    fullname:"",
+    user_current_cart:{
+      id:0,
+      orders:[]
+    },
+    previous_orders:[]
+  })
+  localStorage.clear();
+  <Redirect to="/home"/>
+}
 
   render(){
-    console.log(this.state)
+    
     return (
       <div className="App">
-          <NavBar/>
+          <Header/>
+          
           <Switch>
             <Route path="/" exact component={HomePage} />
             <Route path="/login" exact render={this.renderLoginForm}/>
-            <Route path="/products" component={this.showProducts}/>
-            <Route path="/cart" component={this.showCart} />
+            <Route path="/products" exact component={this.showProducts}/>
+            <Route path="/cart" exact component={this.showCart} />
+            <Route path="/dashboard" exact component={this.showDashBoard}/>
           </Switch>
       </div>
     )
   }
 }
 
-export default App;
+export default withRouter(App);
