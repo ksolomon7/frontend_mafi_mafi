@@ -21,14 +21,11 @@ class SingleProduct extends React.Component{
   }
 
   handleButtonClick=()=>{
-    this.setState({
-      isOpen:false 
-    })
+    // console.log("in add button", this.props.product.id)
+    this.props.createAnOrder(this.props.product.id)
   }
  
-  handleShowModal=()=>{
-    
-  }
+  
   
   render(){
       
@@ -36,21 +33,21 @@ class SingleProduct extends React.Component{
 
         return (
       
-          <Segment>
-            <Card.Group className= "container" itemsPerRow={4}>
+          <div>
+            <Card className= "container">
               <Card raised image={image} onClick={this.handleShowModal}/>
-            </Card.Group>
+            </Card>
             <div className="product-name">
               {product_name}
             </div>
             {/* <Segment.Group piled>
             </Segment.Group> */}
-      
+            <Segment>
             <Modal
                 onClose={this.handleOnClose}
                 onOpen={this.handleOnOpen}
                 open={this.state.open}
-                trigger={<Button>Show Product Detail</Button>}
+                trigger={<Button className="modal-button">Show Product Detail</Button>}
                 >
                 <Modal.Header>{product_name}</Modal.Header>
                 <Modal.Content image>
@@ -64,9 +61,9 @@ class SingleProduct extends React.Component{
                   </Modal.Description>
                 </Modal.Content>
                 <Modal.Actions>
-                  <Button color='black' onClick={this.handleButtonClick}>
+                  {/* <Button color='black'>
                     Nope
-                  </Button>
+                  </Button> */}
                   <Button
                     content="Add To Cart"
                     labelPosition='right'
@@ -77,6 +74,7 @@ class SingleProduct extends React.Component{
                 </Modal.Actions>
             </Modal>
            </Segment>
+           </div>
         )
     }
 }

@@ -14,6 +14,7 @@ class Dashboard extends React.Component{
 
         let pastOrderArray= this.props.pastorders.map(order=>{
             return <PastOrderContainer key={order.id}
+                                       ordered_on={order.ordered_on}
                                        total={order.total}
                                        quantity={order.quantity}
                                        order={order.orders}
@@ -23,14 +24,18 @@ class Dashboard extends React.Component{
 
         return (
             <div>
+                <div>
                 <h1>Dashboard</h1>
-                <p>Welcome back {this.props.full_name}</p>
+                <h3>Welcome Back {this.props.full_name}</h3>
                 
                 <hr/>
                 <h3>Past Order</h3>
                     {pastOrderArray}
-            
-            <Button floated="right" onClick={this.logoutOnClick}>Logout</Button>
+       
+                <div>
+                    <Button floated="right" onClick={this.logoutOnClick}>Logout</Button>
+                </div>
+                </div>
             </div>
         )
     }

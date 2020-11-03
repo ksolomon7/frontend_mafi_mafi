@@ -5,10 +5,11 @@ class ProductContainer extends React.Component{
 
    
     render(){
-    //    console.log(this.props.products)
+    //    console.log(this.props)
         let productsArray= this.props.products.map(product=>{
             return <SingleProduct key={product.id}
                                   product={product}
+                                  createAnOrder={this.props.createAnOrder}
                                   />
         })
     

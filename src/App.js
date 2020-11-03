@@ -72,6 +72,7 @@ handleLogin=(loginInfo)=>{
 
 
 handleResponse=(resp)=>{
+  console.log(resp)
   if(resp.error){
     console.error("Incorrect Username/Password")
   }else{
@@ -88,7 +89,7 @@ handleResponse=(resp)=>{
 }
 
 showProducts=()=>{
-  return <ProductContainer products={this.state.products} />
+  return <ProductContainer products={this.state.products} createAnOrder={this.createAnOrder}/>
 }
 
 showDashBoard=()=>{
@@ -102,10 +103,52 @@ showDashBoard=()=>{
 }
 
 showCart=()=>{
-  <Cart current_cart={this.user_current_cart} />
+  if(localStorage.token){
+    return <Cart current_cart={this.state.user_current_cart} 
+                 deleteAProductFromOrder={this.deleteAProductFromOrder}/>
+  }else{
+    return <Redirect to='/login'/>
+  }
 }
 
+createAnOrder=(productId)=>{
+  // console.log(this.state.user_current_cart.id)
+  fetch("http://localhost:3000/orders",{
+    method:"POST",
+    headers:{
+      "Content-Type": "Application/Json"
+    },
+    body:JSON.stringify({
+      product_id:productId,
+      cart_id:this.state.user_current_cart.id,
+      quantity:1
+    })
+  })
+  .then(resp=>resp.json())
+  .then(newOrder=>{
+    let copyOfOrders=[...this.state.user_current_cart.orders,newOrder]
+    let copyOfCart= {
+      ...this.state.user_current_cart,
+      orders: copyOfOrders
+    }
+    this.setState({
+      user_current_cart:copyOfCart
+    })
+  })
+}
 
+deleteAProductFromOrder=(deletedOrderId)=>{
+    let returnedOrders=this.state.user_current_cart.orders.filter(singleOrder=>{
+      return singleOrder.id !== deletedOrderId
+    })
+    let copyOfCart={
+      ...this.state.user_current_cart,
+      orders: returnedOrders
+    }
+    this.setState({
+      user_current_cart:copyOfCart
+    })
+}
 
 handleLogout=()=>{
   console.log("in handle logout")
@@ -124,7 +167,7 @@ handleLogout=()=>{
 }
 
   render(){
-    
+    console.log(this.state)
     return (
       <div className="App">
           <Header/>
