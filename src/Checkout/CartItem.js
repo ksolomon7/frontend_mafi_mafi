@@ -4,7 +4,6 @@ import {Segment,Card, Button} from "semantic-ui-react"
 class CartItem extends React.Component{
 
     handleDeleteClick=()=>{
-        // console.log(this.props.product_id)
         fetch(`http://localhost:3000/orders/${this.props.order_id}`, {
             method:"DELETE"
         })
@@ -17,16 +16,12 @@ class CartItem extends React.Component{
     }
 
 
-
-
     render(){
-        console.log(this.props) 
-    
-
+       
         let {product_name, product_price, product_image, quantity}= this.props
         return(
             <div>
-                <Segment>
+                    <Segment>
                      <Button floated="right" onClick={this.handleDeleteClick}>X</Button> 
                     <Card>
                         <img src={product_image} alt={product_name}/>
@@ -39,8 +34,7 @@ class CartItem extends React.Component{
                     </Card>
                    
                     Quantity: <Button>{quantity}</Button>
-                    Total :  USD
-                </Segment>
+                    </Segment>
             </div>
         )
     }

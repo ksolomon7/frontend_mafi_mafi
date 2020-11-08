@@ -1,11 +1,13 @@
 import React from 'react'
-import './App.css'
-import Header from './Components/Header'
 import HomePage from './LandingPage/HomePage'
-import LoginForm from './Components/LoginForm'
+import UserForm from './Components/UserForm'
+import Register from './Components/Register'
 import ProductContainer from './Products/ProductContainer'
 import Dashboard from './Components/Dashboard'
 import Cart from './Checkout/Cart'
+import HamBurgerMenu from './Components/HamburgerMenu'
+import SpecificProduct from './Products/SpecificProduct'
+import AboutPage from './Components/AboutPage'
 import {Switch, Route, withRouter, Redirect} from 'react-router-dom'
 
 
@@ -21,7 +23,8 @@ class App extends React.Component{
       id:0,
       orders:[]
     },
-    previous_orders:[]
+    previous_orders:[],
+    searchTerm: ""
   }
 
   componentDidMount(){
@@ -49,9 +52,27 @@ class App extends React.Component{
 
 
 renderLoginForm=(routerProps)=>{
-  return <LoginForm handleLogin={this.handleLogin}/>
+    return <UserForm handleLogin={this.handleLogin}/>
 }
 
+renderRegisterForm=()=>{
+  return <Register handleRegister={this.handleRegister}/>
+}
+
+renderSpecificProduct=(routerProps)=>{
+  let clickedImage= routerProps.match.params.id
+  let matchingProduct= this.state.products.find((product) => {
+    return product.id === parseInt(clickedImage)
+  })
+
+  if(matchingProduct){
+    return <SpecificProduct token={this.state.token}
+                            product={matchingProduct} 
+                            addProduct={this.createAnOrder}/>
+  }else{
+    return <p>Not Found</p>
+  }
+}
 
 handleLogin=(loginInfo)=>{
   fetch("http://localhost:3000/login",{
@@ -70,9 +91,12 @@ handleLogin=(loginInfo)=>{
   })
 }
 
+handleRegister=(registerInfo)=>{
+  console.log("In handle Register")
+}
 
 handleResponse=(resp)=>{
-  console.log(resp)
+  
   if(resp.error){
     console.error("Incorrect Username/Password")
   }else{
@@ -84,19 +108,32 @@ handleResponse=(resp)=>{
       user_current_cart: resp.user.user_current_cart,
       previous_orders: resp.user.past_orders
     })
-    this.props.history.push("/dashboard")
+    this.props.history.push("/products")
   }
 }
 
+showHomePage=()=>{
+  return <HomePage handleLogin={this.handleLogin}/>
+}
 showProducts=()=>{
-  return <ProductContainer products={this.state.products} createAnOrder={this.createAnOrder}/>
+ 
+  let filteredProducts=this.state.products.filter((product) => {
+    return product.product_name.toLowerCase().includes(this.state.searchTerm.toLowerCase())
+  })
+
+  return <ProductContainer token={this.state.token} 
+                            products={filteredProducts} 
+                            createAnOrder={this.createAnOrder}
+                            searchTermChange={this.searchTermChange}
+                            searchTerm={this.state.searchTerm}
+                            />
 }
 
 showDashBoard=()=>{
   if(this.state.token){
     return <Dashboard full_name={this.state.fullname} 
                       pastorders={this.state.previous_orders}
-                      handleLogout={this.handleLogout}/>
+                      />
   }else{
     return <Redirect to="/login"/>
   }
@@ -104,22 +141,29 @@ showDashBoard=()=>{
 
 showCart=()=>{
   if(localStorage.token){
-    return <Cart current_cart={this.state.user_current_cart} 
-                 deleteAProductFromOrder={this.deleteAProductFromOrder}/>
+    return <Cart token={this.state.token}   
+                 current_cart={this.state.user_current_cart}    
+                 deleteAProductFromOrder={this.deleteAProductFromOrder}
+                 getNewCart={this.getNewCart}
+                 />
   }else{
     return <Redirect to='/login'/>
   }
 }
 
+showAboutPage=()=>{
+  return <AboutPage />
+}
+
 createAnOrder=(productId)=>{
-  // console.log(this.state.user_current_cart.id)
+  // console.log("in create an order", productId)
   fetch("http://localhost:3000/orders",{
     method:"POST",
     headers:{
       "Content-Type": "Application/Json"
     },
     body:JSON.stringify({
-      product_id:productId,
+      product_id:productId.id,
       cart_id:this.state.user_current_cart.id,
       quantity:1
     })
@@ -150,8 +194,24 @@ deleteAProductFromOrder=(deletedOrderId)=>{
     })
 }
 
+getNewCart=(resp)=>{
+  
+      console.log("this is the response", resp)
+      let copyOfPreviousOrder= [...this.state.previous_orders, resp.previous_cart]
+      this.setState({
+        user_current_cart:resp.current_cart,
+        previous_orders: copyOfPreviousOrder
+        })
+    
+}
+
+searchTermChange=(searchWord)=>{
+  this.setState({
+    searchTerm: searchWord
+  })
+}
+
 handleLogout=()=>{
-  console.log("in handle logout")
   this.setState({
     token:"",
     username:"",
@@ -163,21 +223,24 @@ handleLogout=()=>{
     previous_orders:[]
   })
   localStorage.clear();
-  <Redirect to="/home"/>
+  this.props.history.push("/")
 }
 
+
   render(){
-    console.log(this.state)
     return (
       <div className="App">
-          <Header/>
-          
+        <HamBurgerMenu token={this.state.token} handleLogout={this.handleLogout}/>
           <Switch>
-            <Route path="/" exact component={HomePage} />
-            <Route path="/login" exact render={this.renderLoginForm}/>
+            <Route path="/" exact render={this.showHomePage}/>
+            
             <Route path="/products" exact component={this.showProducts}/>
+            <Route path="/products/:id" exact component={this.renderSpecificProduct}/>
             <Route path="/cart" exact component={this.showCart} />
+            <Route path="/login" exact render={this.renderLoginForm}/>
+            <Route path="/register" exact component={this.renderRegisterForm}/>
             <Route path="/dashboard" exact component={this.showDashBoard}/>
+            <Route path="/about" exact component={this.showAboutPage} />
           </Switch>
       </div>
     )

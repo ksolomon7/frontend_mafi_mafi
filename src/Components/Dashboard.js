@@ -1,12 +1,9 @@
 import React from 'react'
 import PastOrderContainer from './PastOrderContainer'
-import {Button} from 'semantic-ui-react'
+
 
 class Dashboard extends React.Component{
 
-    logoutOnClick=()=>{
-        this.props.handleLogout()
-    }
 
 
     render(){
@@ -23,18 +20,14 @@ class Dashboard extends React.Component{
 
 
         return (
-            <div>
-                <div>
+            <div className="dashboard-container">
+                <div className="dashboard">
                 <h1>Dashboard</h1>
                 <h3>Welcome Back {this.props.full_name}</h3>
                 
                 <hr/>
                 <h3>Past Order</h3>
                     {pastOrderArray}
-       
-                <div>
-                    <Button floated="right" onClick={this.logoutOnClick}>Logout</Button>
-                </div>
                 </div>
             </div>
         )

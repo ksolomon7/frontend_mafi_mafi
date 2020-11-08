@@ -1,8 +1,8 @@
 import React from 'react'
 import {Button, Form} from 'semantic-ui-react'
-// import {Link} from 'react-router-dom'
+import {withRouter, Link} from 'react-router-dom'
 
-class LoginForm extends React.Component{
+class UserForm extends React.Component{
     
     state={
         username:"",
@@ -19,8 +19,11 @@ class LoginForm extends React.Component{
         this.props.handleLogin(this.state)
     }
 
+   
     render() {
         return(
+                <div className="container-login">
+                  <div>
                     <Form className="login-form">
                       <Form.Input
                         fluid
@@ -42,15 +45,18 @@ class LoginForm extends React.Component{
                         className="auth-input-field"
                       />
               
-                      {/* <Link to="/products"> */}
+                   
                         <Button onClick={this.handleClick} color="grey" fluid size="small">
                           Login
                         </Button>
-                      {/* </Link> */}
+                        <Link to="/register">
+                          <p className="register">Not Registered?</p>
+                        </Link>
                       </Form>
-                    
+                  </div>
+                </div>
                 );
         }
 }
 
-export default LoginForm
+export default withRouter(UserForm)
