@@ -7,14 +7,14 @@ class Dashboard extends React.Component{
 
 
     render(){
-        // console.log("in dashboard", this.props.pastorders)
+        console.log("in dashboard", this.props.pastorder)
 
         let pastOrderArray= this.props.pastorders.map(order=>{
             return <PastOrderContainer key={order.id}
                                        ordered_on={order.ordered_on}
-                                       total={order.total}
                                        quantity={order.quantity}
                                        order={order.orders}
+                                       total={order.total}
             />
         })
 

@@ -92,7 +92,27 @@ handleLogin=(loginInfo)=>{
 }
 
 handleRegister=(registerInfo)=>{
-  console.log("In handle Register")
+  fetch('http://localhost:3000/register', {
+    method:"POST",
+    headers:{
+      'content-type':'application/json'
+    },
+    body:JSON.stringify({
+      username: registerInfo.username,
+      password: registerInfo.password, 
+      first_name: registerInfo.first_name,
+      last_name: registerInfo.last_name,
+      email: registerInfo.email,
+      address: registerInfo.address,
+      state: registerInfo.state,
+      city: registerInfo.city,
+      zipcode: registerInfo.zipcode
+    })
+  })
+  .then(resp=>resp.json())
+  .then(newUser=>{
+    console.log(newUser)
+    this.handleResponse(newUser)})
 }
 
 handleResponse=(resp)=>{
@@ -145,6 +165,8 @@ showCart=()=>{
                  current_cart={this.state.user_current_cart}    
                  deleteAProductFromOrder={this.deleteAProductFromOrder}
                  getNewCart={this.getNewCart}
+                 increaseQuantity={this.increaseQuantity}
+                 decreaseQuantity={this.decreaseQuantity}
                  />
   }else{
     return <Redirect to='/login'/>
@@ -196,7 +218,7 @@ deleteAProductFromOrder=(deletedOrderId)=>{
 
 getNewCart=(resp)=>{
   
-      console.log("this is the response", resp)
+      // console.log("this is the response", resp)
       let copyOfPreviousOrder= [...this.state.previous_orders, resp.previous_cart]
       this.setState({
         user_current_cart:resp.current_cart,
@@ -226,14 +248,75 @@ handleLogout=()=>{
   this.props.history.push("/")
 }
 
+increaseQuantity=(orderId)=>{
+  console.log(orderId)
+  let order= this.state.user_current_cart.orders.find(singleOrder=>{
+      return singleOrder.id=== orderId
+  })
+
+  let quantity= order['quantity']
+  let newQuantity=quantity +1
+  order['quantity'] =newQuantity
+ 
+
+  let copyOfOrders= this.state.user_current_cart.orders.map(singleOrder=>{
+     if (singleOrder.id === order.id){
+       return order
+     }else{
+       return singleOrder
+     }
+
+  })
+
+  let copyOfCart={
+    ...this.state.user_current_cart,
+    orders: copyOfOrders
+  }
+
+   this.setState({
+      user_current_cart:copyOfCart
+   }) 
+
+
+}
+
+decreaseQuantity=(orderId)=>{
+  let order= this.state.user_current_cart.orders.find(singleOrder=>{
+    return singleOrder.id=== orderId
+  })
+
+  let quantity= order['quantity']
+  let newQuantity=quantity -1
+  order['quantity'] =newQuantity
+  console.log("this is order", order)
+
+  let copyOfOrders= this.state.user_current_cart.orders.map(singleOrder=>{
+    if (singleOrder.id === order.id){
+      return order
+    }else{
+      return singleOrder
+    }
+
+  })
+
+  let copyOfCart={
+    ...this.state.user_current_cart,
+    orders: copyOfOrders
+  }
+
+  this.setState({
+      user_current_cart:copyOfCart
+  }) 
+}
+
 
   render(){
+    // console.log("app.js", this.state)
     return (
       <div className="App">
         <HamBurgerMenu token={this.state.token} handleLogout={this.handleLogout}/>
           <Switch>
             <Route path="/" exact render={this.showHomePage}/>
-            
             <Route path="/products" exact component={this.showProducts}/>
             <Route path="/products/:id" exact component={this.renderSpecificProduct}/>
             <Route path="/cart" exact component={this.showCart} />

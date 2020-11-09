@@ -41,13 +41,16 @@ class Cart extends React.Component{
     
    
     render(){
+        console.log("in cart", this.props.current_cart)
 
         let totalSum = this.props.current_cart.orders.reduce((total, order) => {
-             let sumTotal= total + order.product_price 
+            console.log(order.quantity)
+            let sumTotal= total + (order.product_price* order.quantity) 
+             //needs to have the order.product_price to be multiplied by the quantity
              return sumTotal
           }, 0)
 
-        
+        //quantity value passed in needs to be updated in cartItem
         let newOrder= this.props.current_cart.orders.map(order=>{
             return <CartItem key={order.id}
                              order_id={order.id}
@@ -56,12 +59,14 @@ class Cart extends React.Component{
                              product_price={order.product_price}
                              product_image={order.product_image}
                              quantity={order.quantity}
-                             totalSum={this.totalSum}
+                             increaseQuantity={this.props.increaseQuantity}
+                             decreaseQuantity={this.props.decreaseQuantity}
+                             totalSum={totalSum}
                              />
                              
         })
 
-    //    console.log()
+  
         return(
             <div className="cart-container">
                 <Segment>
@@ -76,17 +81,15 @@ class Cart extends React.Component{
                     newOrder
                     }   
                 </Segment> 
-                <Segment>
-                    <Button>Increase Quantity+</Button>
-                    <Button>Decrease Quantity-</Button>
-                </Segment>
-                 
+                
+             
                 <Segment floated="right">
                     Total :  {totalSum} USD
                     <StripeCheckout name="Mafi Mafi"
                                     token={this.onToken}
                                     stripeKey={process.env.REACT_APP_STRIPE_API_KEY}
-                                    shippingAddress
+                                    // billingAddress
+                                    // shippingAddress
                                     currency="USD"
                                     amount={totalSum*100}
                                     >

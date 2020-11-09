@@ -3,8 +3,9 @@ import {Segment, Card} from 'semantic-ui-react'
 
 class PastOrders extends React.Component{
     render(){
-        // console.log("in past order", this.props) 
-        let {name, image, price, quantity } =this.props   
+        // console.log("in past order", this.props)
+         
+        let {name, image, price, quantity,total } =this.props   
         return(
             <div>
             <Segment>
@@ -16,8 +17,11 @@ class PastOrders extends React.Component{
                 <Segment>
                     Quantity: {quantity}
                 </Segment>
-                <Segment textAlign="right">
-                    {price} USD
+                <Segment>
+                    Price:{price} USD
+                </Segment>
+                <Segment textAlign="right" className="price segment">
+                     Order Total: {total} USD
                 </Segment>
               </Segment> 
             </Segment>

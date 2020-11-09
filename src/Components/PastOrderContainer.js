@@ -11,7 +11,7 @@ class PastOrderContainer extends React.Component{
     
     
     render(){
-        // console.log("in past Order Container", this.props.order)
+        console.log("in past Order Container", this.props.total)
 
         let orderArray=this.props.order.map(order=>{
             return <PastOrders key={order.id}
@@ -19,6 +19,7 @@ class PastOrderContainer extends React.Component{
                                image={order.product_image}
                                price={order.product_price}
                                quantity={order.quantity}
+                               total={this.props.total}
             />
         })
         
@@ -26,9 +27,9 @@ class PastOrderContainer extends React.Component{
             <div>
                 <p>Order Date: {this.props.ordered_on}</p>
                 {orderArray}
-                <Segment textAlign="right">
+                {/* <Segment textAlign="right">
                      Total: {this.props.total} USD
-                </Segment>
+                </Segment> */}
             </div>
         )
     }
