@@ -6,12 +6,17 @@ import PastOrders from './PastOrders'
 class PastOrderContainer extends React.Component{
     
     state={
-        open: false
+        toggle: false
     }
     
+    handleClick=()=>{
+        this.setState({
+            toggle: !this.state.toggle
+        })
+    }
     
     render(){
-        console.log("in past Order Container", this.props.total)
+        // console.log("in past Order Container", this.props.total)
 
         let orderArray=this.props.order.map(order=>{
             return <PastOrders key={order.id}
@@ -24,12 +29,16 @@ class PastOrderContainer extends React.Component{
         })
         
         return(
-            <div>
-                <p>Order Date: {this.props.ordered_on}</p>
-                {orderArray}
-                {/* <Segment textAlign="right">
-                     Total: {this.props.total} USD
-                </Segment> */}
+            <div className="past order container">
+                <p className="order date" onClick={this.handleClick}>Order Date: {this.props.ordered_on}</p>
+                     {this.state.toggle?
+                        orderArray
+                            :
+                            null
+                     }
+                <Segment textAlign="right" className="price segment">
+                     Order Total: {this.props.total} USD
+                </Segment>
             </div>
         )
     }

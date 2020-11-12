@@ -1,26 +1,47 @@
 import React from 'react'
-import {Card, Grid, Image} from 'semantic-ui-react'
+import {Image, Card} from 'semantic-ui-react'
 import {withRouter, Link} from 'react-router-dom'
+
 
 class SingleProduct extends React.Component{
       
-  
+  state={
+    isShown:false
+  }
+
+  handleShow=()=>{
+    this.setState({
+      isShown:!this.state.isShown
+    })
+  }
+
+  handleNotShow=()=>{
+    this.setState({
+      isShown:!this.state.isShown
+    })
+  }
+
+  on
+
   render(){
-      
+
       let {id, product_name, image} = this.props.product
 
         return (
-              <>
-                <Grid centered columns={4}>
-                  <Grid.Column>
-                    <Card className="products">
+              <div className='flex-container'>
+                <div className='div image'>
+                  <Card className="single product card">
                         <Link to={`/products/${id}`}>
-                            <Image size="medium" src={image} alt="Product"/>
+                            <Image onMouseEnter={this.handleShow} onMouseLeave={this.handleNotShow} size="medium" classname="single product image" src={image} alt="Product"/>
                         </Link>  
-                    </Card> 
-                  </Grid.Column>
-                </Grid>
-             </>
+                        {this.state.isShown?
+                          <span className="mouse over">{product_name}</span>
+                              :
+                              null  
+                          }
+                  </Card>
+                </div>
+             </div>
         )
     }
 }

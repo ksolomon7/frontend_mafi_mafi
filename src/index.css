@@ -1,17 +1,20 @@
-body {
-  margin: 0;
-  
-  /* background-image: url("https://images.pexels.com/photos/4668553/pexels-photo-4668553.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"); */
+.App{
+  /* background: content-box linear-gradient(0deg, rgba(200,200,209,1) 22%, rgba(231,231,237,1) 59%, rgba(246,246,246,1) 100%); */
+  text-align: center;
 }
 
-
+body {
+  margin: 0;
+  display: initial;
+  /* background-color: content-box linear-gradient(0deg, rgba(200,200,209,1) 22%, rgba(231,231,237,1) 59%, rgba(246,246,246,1) 100%); */
+}
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
 
-.homepage{
+.home.page{
   height: 100vh;
   width: 100vw;
   background-position: center;
@@ -19,9 +22,24 @@ code {
   
 }
 
-/* .container-register{
-  background : url('https://images.pexels.com/photos/3573555/pexels-photo-3573555.jpeg?cs=srgb&dl=pexels-frank-cone-3573555.jpg&fm=jpg')
-} */
+.amharic.title{
+  font-family: Arial, Helvetica, sans-serif;
+  position: absolute;
+  margin-top: 4%;
+  left: 100px;
+}
+
+.container-register{
+  height: 150vh;
+  width: 100vw;
+  text-align: center;
+  font-size: large;
+  background:url('https://images.pexels.com/photos/1820559/pexels-photo-1820559.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940')
+}
+
+.welcome.name{
+  font-size: 15px;
+}
 
 .navigation{
   text-emphasis-color: black;
@@ -119,66 +137,120 @@ Note: Beware of modifying this element as it can break the animations - you shou
   font-size: 50px;
 }
 
-.container-login{
-  text-align: center;
-  /* background: url("https://images.pexels.com/photos/4553417/pexels-photo-4553417.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500");  */
-
-  /* background: url("https://farm6.staticflickr.com/5525/11207856063_e4f8f6a701_o.jpg"); */
+.product.container{
+  margin-top: none;
+  background: content-box linear-gradient(0deg, rgba(200,200,209,1) 22%, rgba(231,231,237,1) 59%, rgba(246,246,246,1) 100%);
 }
 
-.specific-div{
-  margin-top:10%
+.ui.medium.images svg{
+  height: 500px
 }
 
 .specific-product{
   text-align: center;
   margin-left: 400px;
+  font: Helvetica;
+
 }
 
-.designer-info{
-  margin-top: 10%;
+.specific-div{
+  background: content-box linear-gradient(0deg, rgba(200,200,209,1) 22%, rgba(231,231,237,1) 59%, rgba(246,246,246,1) 100%);
 }
 
 .product-name{
   text-align: center;
-  font-size: large;
-
+  font-size: 20px;
+  font-weight: bold;
 }
 
-.container {
-  flex: 0 1 calc(50% - 1rem);
-  margin: 1rem 0.5rem;
-  display: flex;
-  flex-direction: column;
-  background-color: var(--medium-gray);
-  min-width: 0;
-  position: relative;
+.div-card{
+  display:flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin: 0 0 0 150px;
 }
 
+.flex-container{
+  flex-basis: 33%;
+  margin: 15px 0;
+}
+
+.flex-container >ui.image{
+  width:300px;
+  height: 300px;
+}
+
+.div.image{
+  display: initial;
+}
 .ui.card.container-image {
   width:100%;
   position: relative;
   transition: box-shadow 0.2s;
 }
 
-.div-card{
-  margin-top: 100px;
+.single.product.image{
+  border: 100px black;
 }
 
+.bio{
+  font-size: 15px;
+  margin-top: 75px;
+  text-align:center;
+  margin:50px 50px;
+  /* left: 10%; */
+}
+
+.designer-info{
+  background-color: linear-gradient(0deg, rgba(200,200,209,1) 22%, rgba(231,231,237,1) 59%, rgba(246,246,246,1) 100%);;
+}
+
+.designer-title{
+  font-size: 20px;
+  text-align: justify;
+}
 
 .login-form{
   position: relative;
   margin: auto;
   top: 100%;
   width: 60%;
-  /* left: 5px; */
-  top: 200px;
+  right:100px;
+  top: 270px;
   border-radius: 20px;
-  border: 3px solid gainsboro;
+  border: 5px solid gainsboro;
   padding: 10px;
   padding-left: 40px;
   text-align: center;
   vertical-align: center;
+}
+
+.register.form{
+  border: 3px solid gainsboro;
+  text-align: center;
+  vertical-align: center;
+  position: relative;
+  top: 200px;
+  width: 50%;
+  border-radius: 20px;
+  margin: auto;
+  padding: 20px;
+  padding-left: 40px;
+  font-size: 15px;
+  opacity: 0.8;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.div.ui.header{
+  font-size: 20px;
+  color: pink;
+}
+.homepage.title{
+  font-family: Arial, Helvetica, sans-serif;
+  position: absolute;
+  font-size: 50px;
+  left: 50px;
 }
 
 .register{
@@ -195,9 +267,66 @@ Note: Beware of modifying this element as it can break the animations - you shou
 
 .cart-container{
   margin-top: 50px;
-  top:100%,
+  top:100%;
+  margin: 50px 50px;
+  background: linear-gradient(0deg, rgba(200,200,209,1) 22%, rgba(231,231,237,1) 59%, rgba(246,246,246,1) 100%);
 }
 
+.ui.big.segment{
+  justify-content: space-between;
+  background: content-box linear-gradient(0deg, rgba(200,200,209,1) 22%, rgba(231,231,237,1) 59%, rgba(246,246,246,1) 100%);
+  
+}
+
+.ui.right.floated.segment{
+  font-size:15px;
+  font-style: oblique;
+  text-align: center;
+}
 .specific-product{
   margin-top:10%;
+  right: 300px;
+  font-size: 15px;
 }
+
+.main.menu{
+  flex: 0 1 calc(50% - 1rem);
+  /* margin: 1rem 0.5rem; */
+  display: flex;
+  /* flex-direction: column; */
+  background-color: var(--medium-gray);
+  min-width: 0;
+  position: relative;
+}
+
+.mouse.over{
+  font-size: 15px;
+  font-style: oblique;
+}
+.ui.search.search.bar{
+  width:200%;
+  height:100%;
+}
+
+.specific.image{
+  border: medium;
+}
+
+.map{
+  width:500px;
+  height:500px;
+}
+
+.contact.footer{
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color: white;
+  text-align: center;
+}
+
+.div.dashboard{
+    background-color: linear-gradient(0deg, rgba(200,200,209,1) 22%, rgba(231,231,237,1) 59%, rgba(246,246,246,1) 100%);
+  }
+

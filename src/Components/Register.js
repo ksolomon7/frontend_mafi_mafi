@@ -1,6 +1,6 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
-import {Button, Form} from 'semantic-ui-react'
+import {Button, Form, Header} from 'semantic-ui-react'
 
 class Register extends React.Component{
 
@@ -8,11 +8,8 @@ class Register extends React.Component{
         username:"",
         first_name: "",
         last_name: "",
-        email:"",
         password:"",
-        address:"",
         state:"",
-        city: "",
         zipcode: 10000
     }
 
@@ -30,15 +27,16 @@ class Register extends React.Component{
 
     render(){
     
-        let {username, first_name, last_name, email, password, address, state, city, zipcode}= this.state
+        let {username, first_name, last_name, password, state, zipcode}= this.state
 
         return(
             <div className="container-register">
             
-              <Form className="login-form">
-                <Form.Field>
+              <Form className="register form">
+                <Header>Mafi Mafi</Header>
+                <Form.Field className="username label">
                     <label>Username</label>
-                    <Form.Input width={15} type="text" autoComplete="off" name="username" value={username} onChange={this.handleChange} placeholder='Username'/>
+                    <Form.Input centered width={15} type="text" autoComplete="off" name="username" value={username} onChange={this.handleChange} placeholder='Username'/>
                 </Form.Field>
                 <Form.Field>
                     <label>Password</label>
@@ -53,20 +51,8 @@ class Register extends React.Component{
                     <Form.Input width={15} type="" autoComplete="off" name="last_name" value={last_name} onChange={this.handleChange} placeholder='Last Name' />
                 </Form.Field>
                 <Form.Field >
-                    <label>E-mail</label>
-                    <Form.Input width={15} type="text" autoComplete="off" name="email" value={email} onChange={this.handleChange} placeholder='Email' />
-                </Form.Field>
-                <Form.Field >
-                    <label>Address</label>
-                    <Form.Input width={15} type="text" autoComplete="off" name="address" value={address} onChange={this.handleChange} placeholder='Address' />
-                </Form.Field>
-                <Form.Field >
                     <label>State</label>
                     <Form.Input width={15} type="text" autoComplete="off" name="state" value={state} onChange={this.handleChange} placeholder='State' />
-                </Form.Field>
-                <Form.Field >
-                    <label>City</label>
-                    <Form.Input width={15} type="text" autoComplete="off" name="city" value={city} onChange={this.handleChange} placeholder='City' />
                 </Form.Field>
                 <Form.Field >
                     <label>Zipcode</label>
@@ -76,7 +62,7 @@ class Register extends React.Component{
                   <Button onClick={this.handleClick} color="grey" fluid size="small">
                     Register
                   </Button>
-                  <Link to="/">
+                  <Link to="/login">
                     <p className="register">Registered?</p>
                   </Link>
                 </Form>

@@ -48,7 +48,7 @@ class CartItem extends React.Component{
         let {product_name, product_price, product_image, quantity}= this.props
         return(
             <div>
-                    <Segment>
+                    <Segment className="cart item">
                      <Button floated="right" onClick={this.handleDeleteClick}>X</Button> 
                     <Card>
                         <img src={product_image} alt={product_name}/>
@@ -60,7 +60,7 @@ class CartItem extends React.Component{
                         </Segment>
                     </Card>
                    
-                    Quantity: 
+                    
                  
                         <Button onClick={this.handleAddQuantity}>Increase Quantity+</Button>
                         <Button>{quantity}</Button>

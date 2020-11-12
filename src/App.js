@@ -1,5 +1,6 @@
 import React from 'react'
 import HomePage from './LandingPage/HomePage'
+import TopMenu from './LandingPage/TopMenu'
 import UserForm from './Components/UserForm'
 import Register from './Components/Register'
 import ProductContainer from './Products/ProductContainer'
@@ -24,7 +25,8 @@ class App extends React.Component{
       orders:[]
     },
     previous_orders:[],
-    searchTerm: ""
+    searchTerm: "",
+    category_search:" "
   }
 
   componentDidMount(){
@@ -45,6 +47,7 @@ class App extends React.Component{
       })
         .then(resp=> resp.json())
         .then(secondResp=>{
+          console.log("this is second Response", secondResp)
           this.handleResponse(secondResp)
         })
     }
@@ -102,16 +105,13 @@ handleRegister=(registerInfo)=>{
       password: registerInfo.password, 
       first_name: registerInfo.first_name,
       last_name: registerInfo.last_name,
-      email: registerInfo.email,
-      address: registerInfo.address,
       state: registerInfo.state,
-      city: registerInfo.city,
       zipcode: registerInfo.zipcode
     })
   })
   .then(resp=>resp.json())
   .then(newUser=>{
-    console.log(newUser)
+    // console.log(newUser)
     this.handleResponse(newUser)})
 }
 
@@ -128,24 +128,47 @@ handleResponse=(resp)=>{
       user_current_cart: resp.user.user_current_cart,
       previous_orders: resp.user.past_orders
     })
-    this.props.history.push("/products")
+    this.props.history.push("/")
   }
 }
 
 showHomePage=()=>{
   return <HomePage handleLogin={this.handleLogin}/>
 }
+
 showProducts=()=>{
  
-  let filteredProducts=this.state.products.filter((product) => {
+  let filteredProductsFunction=()=>{
+  if(this.state.category_search === "All Products"){
+    let filteredProducts=this.state.products
+    return filteredProducts
+  }else if(this.state.category_search === "Scarf"){
+    return this.state.products.filter(product => product.item_category === "Scarf")
+  }else if(this.state.category_search === "Mask"){
+    return this.state.products.filter(product => product.item_category === "Mask")
+  }else if(this.state.category_search === "Dress"){
+    return this.state.products.filter(product => product.item_category === "Dress")
+  }else if(this.state.category_search === "Kimono"){
+    return this.state.products.filter(product => product.item_category === "Kimono")
+  }else if(this.state.category_search === "Jacket"){
+    return this.state.products.filter(product => product.item_category === "Jacket")
+  }else if(this.state.category_search === "Pant"){
+    return this.state.products.filter(product => product.item_category === "Pant")
+  }else if(this.state.category_search === "Jumpsuit"){
+    return this.state.products.filter(product => product.item_category === "Jumpsuit")
+  }else if(this.state.category_search === "Shirt"){
+    return this.state.products.filter(product => product.item_category === "Shirt")
+  }else if(this.state.searchTerm !== " "){
+    let filteredProducts=this.state.products.filter((product) => {
     return product.product_name.toLowerCase().includes(this.state.searchTerm.toLowerCase())
   })
+   return filteredProducts
+}
+  }
 
-  return <ProductContainer token={this.state.token} 
-                            products={filteredProducts} 
+  return <ProductContainer token={this.state.token}
+                            products={filteredProductsFunction()}
                             createAnOrder={this.createAnOrder}
-                            searchTermChange={this.searchTermChange}
-                            searchTerm={this.state.searchTerm}
                             />
 }
 
@@ -309,22 +332,39 @@ decreaseQuantity=(orderId)=>{
   }) 
 }
 
-
+selectedCategory=(choice)=>{
+  this.setState({
+    category_search:choice
+  })
+}
   render(){
     // console.log("app.js", this.state)
     return (
       <div className="App">
-        <HamBurgerMenu token={this.state.token} handleLogout={this.handleLogout}/>
+       {this.props.location.pathname === "/login"?
+            null
+            :
+        <TopMenu  token={this.state.token} 
+                  full_name={this.state.fullname} 
+                  searchTerm={this.state.searchTerm}  
+                  searchTermChange={this.searchTermChange}
+                  logout={this.handleLogout}
+                  user_current_cart={this.state.user_current_cart}/>
+          } 
+        <HamBurgerMenu  selectedCategory={this.selectedCategory}
+                        token={this.state.token} 
+                        handleLogout={this.handleLogout}/>
           <Switch>
-            <Route path="/" exact render={this.showHomePage}/>
-            <Route path="/products" exact component={this.showProducts}/>
+            <Route path="/login" exact render={this.showHomePage}/>
+            <Route path="/" exact component={this.showProducts}/>
             <Route path="/products/:id" exact component={this.renderSpecificProduct}/>
             <Route path="/cart" exact component={this.showCart} />
-            <Route path="/login" exact render={this.renderLoginForm}/>
+            {/* <Route path="/login" exact render={this.renderLoginForm}/> */}
             <Route path="/register" exact component={this.renderRegisterForm}/>
             <Route path="/dashboard" exact component={this.showDashBoard}/>
             <Route path="/about" exact component={this.showAboutPage} />
           </Switch>
+         
       </div>
     )
   }

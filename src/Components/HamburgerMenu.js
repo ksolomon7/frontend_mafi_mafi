@@ -7,11 +7,45 @@ import {Link} from 'react-router-dom'
 
 class HamBurgerMenu extends React.Component{
 
+    state={
+        toggle:false
+    }
+
     logoutOnClick=()=>{
         this.props.handleLogout()
     }
 
+    showProducts=()=>{
+        this.setState({
+            toggle: !this.state.toggle
+        })
+    }
+
+    handleClick=(evt)=>{
+        this.props.selectedCategory(evt.target.value)
+    }
     render(){
+
+             let dropdownOption= ()=>{
+                return(
+                <ul className="dropdown ul">
+                <li>
+                <div onClick={this.handleClick}>
+                   <option value={"All"}>All Products</option>
+                    <option value={"Mask"}>Mask</option>
+                    <option value={"Dress"}>Dress</option>
+                    <option value={"Kimono"}>Kimonos</option>
+                    <option value={"Scarf"}>Scarf</option>
+                    <option value={"Jacket"}>Jacket</option>
+                    <option value={"Jumpsuit"}>Jumpsuit</option>
+                    <option value={"Pant"}>Pant</option>
+                    <option value={"Shirt"}>Shirt</option>
+                    </div>
+                 </li>
+                </ul>
+                )
+             }
+     
         return( 
             <Menu>
                 <div className="navigation">
@@ -22,18 +56,24 @@ class HamBurgerMenu extends React.Component{
                 </ul>
                 <ul>
                     <li>
-                        <Link to="/">
-                            <button>Home</button>
+                        <Link to="/login">
+                            <button>Login</button>
                         </Link>
                     </li>
                 </ul>
                 <ul> 
                     <li>
-                        <Link to="/products">
-                            <button>Products</button>
+                        <Link to="/">
+                            <button onClick={this.showProducts}>Products</button>
                         </Link>
                     </li>
                 </ul> 
+                 
+                    {this.state.toggle?
+                    dropdownOption()
+                    :
+                     null
+                      }
                 <ul>
                     <li >
                         <Link to="/about">

@@ -34,19 +34,19 @@ class Cart extends React.Component{
              })
             .then(resp=>resp.json())
             .then(resp=>{
-                    console.log("from fetch", resp)
                     this.props.getNewCart(resp)
                 })
+
+                alert("Thank you for placing your order.")
     }
     
    
     render(){
-        console.log("in cart", this.props.current_cart)
+        
 
         let totalSum = this.props.current_cart.orders.reduce((total, order) => {
-            console.log(order.quantity)
+            // console.log(order.quantity)
             let sumTotal= total + (order.product_price* order.quantity) 
-             //needs to have the order.product_price to be multiplied by the quantity
              return sumTotal
           }, 0)
 
@@ -69,7 +69,7 @@ class Cart extends React.Component{
   
         return(
             <div className="cart-container">
-                <Segment>
+                <Segment raised>
                     <h1>Cart</h1>
                 </Segment>
                
@@ -83,13 +83,11 @@ class Cart extends React.Component{
                 </Segment> 
                 
              
-                <Segment floated="right">
+                <Segment raised floated="right">
                     Total :  {totalSum} USD
                     <StripeCheckout name="Mafi Mafi"
                                     token={this.onToken}
                                     stripeKey={process.env.REACT_APP_STRIPE_API_KEY}
-                                    // billingAddress
-                                    // shippingAddress
                                     currency="USD"
                                     amount={totalSum*100}
                                     >

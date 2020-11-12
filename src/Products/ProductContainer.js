@@ -1,6 +1,6 @@
 import React from 'react'
 import SingleProduct from './SingleProduct'
-import SearchBar from './SearchBar'
+
 
 class ProductContainer extends React.Component{
 
@@ -16,14 +16,11 @@ class ProductContainer extends React.Component{
         })
     
         return(
-            <>
-            <div className="div-card">
-                <h1>Products</h1>
-                <SearchBar searchTermChange={this.props.searchTermChange}
-                           searchTerm={this.props.searchTerm}/>
+            <div className="product container">
+                <div className="div-card">
+                      {productsArray}
+                </div>
             </div>
-            {productsArray}
-            </>
         )
     }
 }
