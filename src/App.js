@@ -30,7 +30,7 @@ class App extends React.Component{
   }
 
   componentDidMount(){
-    fetch("http://localhost:3000/products")
+    fetch("https://mafi-mafi-backend-api.herokuapp.com/products")
     .then(resp=>resp.json())
     .then(products=>{
       this.setState({
@@ -39,7 +39,7 @@ class App extends React.Component{
     })
 
     if(localStorage.token){
-      fetch("http://localhost:3000/keep_logged_in",{
+      fetch("https://mafi-mafi-backend-api.herokuapp.com/keep_logged_in",{
         method: "GET",
         headers:{
           "Authorization": localStorage.token
@@ -47,7 +47,7 @@ class App extends React.Component{
       })
         .then(resp=> resp.json())
         .then(secondResp=>{
-          console.log("this is second Response", secondResp)
+          // console.log("this is second Response", secondResp)
           this.handleResponse(secondResp)
         })
     }
@@ -78,7 +78,7 @@ renderSpecificProduct=(routerProps)=>{
 }
 
 handleLogin=(loginInfo)=>{
-  fetch("http://localhost:3000/login",{
+  fetch("https://mafi-mafi-backend-api.herokuapp.com/login",{
     method: "POST",
     headers:{
       "Content-Type":"Application/json"
@@ -95,7 +95,7 @@ handleLogin=(loginInfo)=>{
 }
 
 handleRegister=(registerInfo)=>{
-  fetch('http://localhost:3000/register', {
+  fetch('https://mafi-mafi-backend-api.herokuapp.com/register', {
     method:"POST",
     headers:{
       'content-type':'application/json'
@@ -202,7 +202,7 @@ showAboutPage=()=>{
 
 createAnOrder=(productId)=>{
   // console.log("in create an order", productId)
-  fetch("http://localhost:3000/orders",{
+  fetch("https://mafi-mafi-backend-api.herokuapp.com/orders",{
     method:"POST",
     headers:{
       "Content-Type": "Application/Json"
@@ -272,7 +272,7 @@ handleLogout=()=>{
 }
 
 increaseQuantity=(orderId)=>{
-  console.log(orderId)
+  // console.log(orderId)
   let order= this.state.user_current_cart.orders.find(singleOrder=>{
       return singleOrder.id=== orderId
   })

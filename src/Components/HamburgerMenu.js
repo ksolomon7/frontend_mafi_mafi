@@ -30,7 +30,7 @@ class HamBurgerMenu extends React.Component{
                 return(
                 <ul className="dropdown ul">
                 <li>
-                <div onClick={this.handleClick}>
+                <div className="option" onClick={this.handleClick}>
                    <option value={"All"}>All Products</option>
                     <option value={"Mask"}>Mask</option>
                     <option value={"Dress"}>Dress</option>

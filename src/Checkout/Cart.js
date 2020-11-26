@@ -14,7 +14,7 @@ class Cart extends React.Component{
         // console.log("this onToken", this.props)
         const total=this.props.current_cart.total
     
-        fetch('http://localhost:3000/charges',{
+        fetch('https://mafi-mafi-backend-api.herokuapp.com/charges',{
             method:"POST",
             headers:{
                 "Content-Type":"application/json"
@@ -25,7 +25,7 @@ class Cart extends React.Component{
             })
         })
 
-        fetch(`http://localhost:3000/carts/${this.props.current_cart.id}/new_order`, {
+        fetch(`https://mafi-mafi-backend-api.herokuapp.com/carts/${this.props.current_cart.id}/new_order`, {
                 method:"PATCH",
                 headers:{
                     'content-type':'application/json',

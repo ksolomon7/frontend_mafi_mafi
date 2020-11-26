@@ -1,6 +1,6 @@
 import React from 'react'
 import PastOrderContainer from './PastOrderContainer'
-
+import {Segment} from 'semantic-ui-react'
 
 class Dashboard extends React.Component{
 
@@ -22,7 +22,9 @@ class Dashboard extends React.Component{
         return (
             <div className="dashboard-container">
                 <div className="dashboard">
-                <h1>Dashboard</h1>
+                <Segment inverted="true" raised="true">
+                    <h1>Dashboard</h1>
+                </Segment>
                 <h3>Welcome Back {this.props.full_name}</h3>
                 
                 <hr/>

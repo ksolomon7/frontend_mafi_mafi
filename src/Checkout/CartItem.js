@@ -5,7 +5,7 @@ class CartItem extends React.Component{
 
     
     handleDeleteClick=()=>{
-        fetch(`http://localhost:3000/orders/${this.props.order_id}`, {
+        fetch(`https://mafi-mafi-backend-api.herokuapp.com/orders/${this.props.order_id}`, {
             method:"DELETE"
         })
         .then(resp=>resp.json())
@@ -16,9 +16,8 @@ class CartItem extends React.Component{
 
 
     handleAddQuantity=()=>{
-        console.log("this is sum", this.props.totalSum)
         
-        fetch(`http://localhost:3000/orders/${this.props.order_id}`, {
+        fetch(`https://mafi-mafi-backend-api.herokuapp.com/orders/${this.props.order_id}`, {
             method:"PATCH",
             headers:{
                 'content-type': 'application/json'
@@ -31,7 +30,7 @@ class CartItem extends React.Component{
     }
 
     handleSubtractQuantity=()=>{
-        fetch(`http://localhost:3000/orders/${this.props.order_id}`, {
+        fetch(`https://mafi-mafi-backend-api.herokuapp.com/orders/${this.props.order_id}`, {
             method:"PATCH",
             headers:{
                 'content-type': 'application/json'

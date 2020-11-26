@@ -21,7 +21,7 @@ class SingleProduct extends React.Component{
     })
   }
 
-  on
+
 
   render(){
 
