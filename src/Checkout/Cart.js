@@ -87,7 +87,7 @@ class Cart extends React.Component{
                     Total :  {totalSum} USD
                     <StripeCheckout name="Mafi Mafi"
                                     token={this.onToken}
-                                    stripeKey={process.env.REACT_APP_STRIPE_API_KEY}
+                                    stripeKey={process.env.RAZZLE_STRIPE_API_KEY}
                                     currency="USD"
                                     amount={totalSum*100}
                                     >

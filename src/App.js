@@ -359,7 +359,6 @@ selectedCategory=(choice)=>{
             <Route path="/" exact component={this.showProducts}/>
             <Route path="/products/:id" exact component={this.renderSpecificProduct}/>
             <Route path="/cart" exact component={this.showCart} />
-            {/* <Route path="/login" exact render={this.renderLoginForm}/> */}
             <Route path="/register" exact component={this.renderRegisterForm}/>
             <Route path="/dashboard" exact component={this.showDashBoard}/>
             <Route path="/about" exact component={this.showAboutPage} />
