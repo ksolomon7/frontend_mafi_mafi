@@ -10,11 +10,12 @@ function Map(){
         zoom:12
     })
 
+    console.log(process.env.REACT_APP_MAPBOX_API_KEY)
     return(
         <div className="map">
             <ReactMapGl
             {...viewport}
-            mapboxApiAccessToken={process.env.RAZZLE_MAPBOX_API_KEY}
+            mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_API_KEY}
             // mapStyle='mapbox://styles/ksolomon7/ckh6z2w72083419ny9823of08'
             mapStyle='mapbox://styles/ksolomon7/ckgh6bpp7060519pjac0q1pe6'
             onViewportChange={viewport=>{setViewport(viewport)}}
