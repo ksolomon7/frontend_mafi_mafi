@@ -27,6 +27,8 @@ The website has a few implemented stretch features:
 5.The user can filter product options through the search bar or through the burger menu.
 
 Check out the <a href="https://mafi-mafi.herokuapp.com/">live site</a>. 
+<img src="https://user-images.githubusercontent.com/57603757/129086022-7ad4ec9f-4610-41be-874a-9ee86aab47f9.png" alt="image of products page for mafi mafi">
+
 
 <h6>Getting Started<h6>
 Note: In order to run this application locally, you will first need an API key from <a href="https://stripe.com/docs/payments/checkout"><b>Stripe checkout</b></a> and an API key from <a href="https://docs.mapbox.com/help/getting-started/access-tokens/"><b>Mapbox</b></a>.
