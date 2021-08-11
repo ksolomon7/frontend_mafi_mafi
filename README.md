@@ -31,6 +31,7 @@ Check out the <a href="https://mafi-mafi.herokuapp.com/">live site</a>.
 
 
 <h3>Getting Started</h3>
+<hr>
 Note: In order to run this application locally, you will first need an API key from <a href="https://stripe.com/docs/payments/checkout"><b>Stripe checkout</b></a> and an API key from <a href="https://docs.mapbox.com/help/getting-started/access-tokens/"><b>Mapbox</b></a>.
 
 <ol>
