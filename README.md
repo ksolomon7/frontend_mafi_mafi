@@ -5,7 +5,7 @@
 <h2>Overview</h2>
 Mafi Mafi is an existing clothing company based out of Ethiopia that pushes the boundary of Ethiopian traditional clothing into the modern era. I have been following the designer <em>Mahlet Afework</em>.The company is currently selling their products directly through their store located in Addis Ababa and showing their products through Instagram.
 
-My motivation for creating this project was to create a website to show case the current items at their store based on their instagram posts, and allow users to create their own account and purchase these items securely through stripe checkout. The aim of the website is to promote Mafi Mafi which is a small black owned business. 
+My motivation for creating this website was to show case the current items at their store based on their instagram posts, and allow users to create their own account and purchase these items securely through stripe checkout. The main aim of the website is to promote Mafi Mafi which is a small black owned business. 
 
 
 <h3>User Stories</h3>
@@ -22,7 +22,7 @@ The website currently allows:
 The website has a few implemented stretch features:
 1.The website has a simple chat robot that navigates to links within the website. This is implemented using <b>React-simple-chatbot</b>
 2.The website has a zoom in feature in order for users to zoom in on clothing items to get a better view of the product.
-3.The website has a payment window implemented through Stripe Checkout API.
+3.The website has a payment section that takes credit card information implemented through Stripe Checkout API.
 4.The about page, has information about the designer and a live map for store locations, implemented through Mapbox third-party API.
 5.The user can filter product options through the search bar or through the burger menu.
 <hr>
@@ -30,6 +30,16 @@ Check out the <a href="https://mafi-mafi.herokuapp.com/">live site</a>.
 <img src="https://user-images.githubusercontent.com/57603757/129086022-7ad4ec9f-4610-41be-874a-9ee86aab47f9.png" alt="image of products page for mafi mafi">
 
 
-<h6>Getting Started<h6>
+<h3>Getting Started</h3>
 Note: In order to run this application locally, you will first need an API key from <a href="https://stripe.com/docs/payments/checkout"><b>Stripe checkout</b></a> and an API key from <a href="https://docs.mapbox.com/help/getting-started/access-tokens/"><b>Mapbox</b></a>.
+
+<ol>
+  <li>Download <a href="https://nodejs.org/en/">Node</a> and npm </li>
+  <li>Clone the project locally</li>
+  <li>cd into the directory</li>
+  <li>Install all dependencies</li>
+  <li>Run the server</li>
+  ```npm start
+</ol>
+
 
