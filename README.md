@@ -39,7 +39,30 @@ Note: In order to run this application locally, you will first need an API key f
   <li>cd into the directory</li>
   <li>Install all dependencies</li>
   <li>Run the server</li>
-  ```npm start
+     npm start
 </ol>
 
+<h3>Tech Stack</h3>
+  <ul>
+  <h6>Front-End Tech Stack</h6>
+  <li>React</li>
+  <li>Semantic UI</li>
+  <li>CSS</li>
+  <li>MapBox API</li>
+  <li>Stripe Checkout API</li>
+  <li>React-Simple-Chatbot
+  </ul>
+  
+  <ul>
+  <h6>Back-End Tech Stack</h6>
+  <li>Ruby on Rails</li>
+  </ul>
+  
+ <h3>Future Features</h3>
+ Some stretch features that I would love to incorporate:
+    <ul>
+       <li>IBM Watson for the chat feature</li>
+       <li>Improving the UI Interface using User Center Design</li>
+       <li>Adding Mobile Responsiveness</li> 
+    </ul>
 
