@@ -10,12 +10,13 @@ My motivation for creating this project was to create a website to show case the
 
 <h3>User Stories</h3>
 The website currently allows:
-1. Users to log in and logout of the application.
-1. Users to create an account.
-1. Users to browse through a list of products.
-1. Users to add/remove items from their carts.
-1. Users to see their final order cost and previous orders in their account.
-
+<ol>
+  <li>Users to log in and logout of the application</li>
+  <li>Users to create an account.</li>
+  <li>Users to browse through a list of products.</li>
+  <li>Users to add/remove items from their carts</li>
+  <li>Users to see their final order cost and previous orders in their account</li>
+</ol>
 
 <h3>Features</h3>
 The website has a few implemented stretch features:
