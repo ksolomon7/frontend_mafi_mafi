@@ -25,7 +25,7 @@ The website has a few implemented stretch features:
 3.The website has a payment window implemented through Stripe Checkout API.
 4.The about page, has information about the designer and a live map for store locations, implemented through Mapbox third-party API.
 5.The user can filter product options through the search bar or through the burger menu.
-
+<hr>
 Check out the <a href="https://mafi-mafi.herokuapp.com/">live site</a>. 
 <img src="https://user-images.githubusercontent.com/57603757/129086022-7ad4ec9f-4610-41be-874a-9ee86aab47f9.png" alt="image of products page for mafi mafi">
 
