@@ -1,4 +1,4 @@
-(![Screen Shot 2020-10-25 at 11 57 18 PM](https://user-images.githubusercontent.com/57603757/129078238-0dfc3226-a108-4db6-9c09-c6d9c1e1a2ba.png)
+![Screen Shot 2020-10-25 at 11 57 18 PM](https://user-images.githubusercontent.com/57603757/129078238-0dfc3226-a108-4db6-9c09-c6d9c1e1a2ba.png)
 
 <h1>Mafi Mafi</h1>
 
