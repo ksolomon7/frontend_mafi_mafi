@@ -31,7 +31,6 @@ Check out the <a href="https://mafi-mafi.herokuapp.com/">live site</a>.
 
 
 <h3>Getting Started</h3>
-<hr>
 Note: In order to run this application locally, you will first need an API key from <a href="https://stripe.com/docs/payments/checkout"><b>Stripe checkout</b></a> and an API key from <a href="https://docs.mapbox.com/help/getting-started/access-tokens/"><b>Mapbox</b></a>.
 
 <ol>
@@ -66,4 +65,17 @@ Note: In order to run this application locally, you will first need an API key f
        <li>Improving the UI Interface using User Center Design</li>
        <li>Adding Mobile Responsiveness</li> 
     </ul>
+
+<h3>Resources</h3>
+
+<h3>Contributor</h3>
+<table>
+  <tr>
+   <td align="center">
+      <a href="https://github.com/wlcreate">
+        <img src="https://avatars2.githubusercontent.com/u/57603757?s=460&u=94c84f50d603476ea226a1dde99118ac8964dc67&v=4" width="200px;" alt=""/><br/><sub><b>Kalkidan Solomon Taye</b></sub>
+      </a><br />      
+    </td>
+  </tr>
+</table>
 
