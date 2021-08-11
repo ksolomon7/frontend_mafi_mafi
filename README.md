@@ -3,26 +3,30 @@
 <h1>Mafi Mafi</h1>
 
 <h2>Overview</h2>
-Mafi Mafi is an existing clothing company based out of Ethiopia that pushes the boundary of Ethiopian traditional clothing into the modern era. I have been following the designer <em>Mahlet Afework</em>, and I realized that the company was getting sales through direct selling at their store located in Addis Ababa and posts on Instagram, but did not have a dedicated website.
+Mafi Mafi is an existing clothing company based out of Ethiopia that pushes the boundary of Ethiopian traditional clothing into the modern era. I have been following the designer <em>Mahlet Afework</em>.The company is currently selling their products directly through their store located in Addis Ababa and showing their products through Instagram.
 
-The aim of the project was to create a website to show case the current items at their store based on their instagram posts, and allow users to create their own account and purchase these items securely through stripe checkout. 
+My motivation for creating this project was to create a website to show case the current items at their store based on their instagram posts, and allow users to create their own account and purchase these items securely through stripe checkout. The aim of the website is to promote Mafi Mafi which is a small black owned business. 
 
 
 <h3>User Stories</h3>
-1. Users are able to log in and logout of the application.
-2. Users are able to create an account.
-3. Users are able to browse through a list of products.
-4. Users are able to add/remove items from their carts.
-5. Users are able to see their final order cost and previous orders in their account.
+The website currently allows:
+1. Users to log in and logout of the application.
+2. Users to create an account.
+3. Users to browse through a list of products.
+4. Users to add/remove items from their carts.
+5. Users to see their final order cost and previous orders in their account.
 
 
-The website allows users to 
+<h3>Features</h3>
+The website has a few implemented stretch features:
+1.The website has a simple chat robot that navigates to links within the website. This is implemented using <b>React-simple-chatbot</b>
+2.The website has a zoom in feature in order for users to zoom in on clothing items to get a better view of the product.
+3.The website has a payment window implemented through Stripe Checkout API.
+4.The about page, has information about the designer and a live map for store locations, implemented through Mapbox third-party API.
+5.The user can filter product options through the search bar or through the burger menu.
 
-
-
-
-
-Check out the live site. 
+Check out the <a href="https://mafi-mafi.herokuapp.com/">live site</a>. 
 
 <h6>Getting Started<h6>
-Note: In order to run this application locally, you will first need an API key from Stripe checkout and API key from 
+Note: In order to run this application locally, you will first need an API key from <a href="https://stripe.com/docs/payments/checkout"><b>Stripe checkout</b></a> and an API key from <a href="https://docs.mapbox.com/help/getting-started/access-tokens/"><b>Mapbox</b></a>.
+
