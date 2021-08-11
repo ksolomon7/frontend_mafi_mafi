@@ -3,7 +3,7 @@
 <h1>Mafi Mafi</h1>
 
 <h2>Overview</h2>
-Mafi Mafi is an existing clothing company based out of Ethiopia that pushes the boundary of Ethiopian traditional clothing into the modern era. I have been following the designer *Mahlet Afework*, and I realized that the company was getting sales through direct selling at their store located in Addis Ababa and posts on Instagram, but did not have a dedicated website.
+Mafi Mafi is an existing clothing company based out of Ethiopia that pushes the boundary of Ethiopian traditional clothing into the modern era. I have been following the designer <em>Mahlet Afework</em>, and I realized that the company was getting sales through direct selling at their store located in Addis Ababa and posts on Instagram, but did not have a dedicated website.
 
 The aim of the project was to create a website to show case the current items at their store based on their instagram posts, and allow users to create their own account and purchase these items securely through stripe checkout. 
 
