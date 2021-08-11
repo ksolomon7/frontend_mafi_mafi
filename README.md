@@ -11,10 +11,10 @@ My motivation for creating this project was to create a website to show case the
 <h3>User Stories</h3>
 The website currently allows:
 1. Users to log in and logout of the application.
-2. Users to create an account.
-3. Users to browse through a list of products.
-4. Users to add/remove items from their carts.
-5. Users to see their final order cost and previous orders in their account.
+1. Users to create an account.
+1. Users to browse through a list of products.
+1. Users to add/remove items from their carts.
+1. Users to see their final order cost and previous orders in their account.
 
 
 <h3>Features</h3>
