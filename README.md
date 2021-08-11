@@ -39,7 +39,7 @@ Note: In order to run this application locally, you will first need an API key f
   <li>cd into the directory</li>
   <li>Install all dependencies</li>
   <li>Run the server</li>
-     *`npm start`
+     npm start
 </ol>
 
 <h3>Tech Stack</h3>
