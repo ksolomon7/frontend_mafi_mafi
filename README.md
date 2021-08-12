@@ -70,7 +70,7 @@ Note: In order to run this application locally, you will first need an API key f
     </ul>
 
 <h3>Acknowledgments</h3>
-I do not own any of the images or logos. If you would like to learn more please visit the<a href="https://www.instagram.com/mafimafi_et/?hl=en"><b>Mafi Mafi Instagram page</b></a>.
+I do not own any of the images or logos. If you would like to learn more please visit the <a href="https://www.instagram.com/mafimafi_et/?hl=en"><b>Mafi Mafi Instagram page</b></a>.
 
 <h3>Contributor</h3>
 <table>
