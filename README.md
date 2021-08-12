@@ -20,7 +20,8 @@ The website currently allows:
 
 <h3>Features</h3>
 The website has a few implemented stretch features:
-1.The website has a simple chat robot that navigates to links within the website. This is implemented using <b>React-simple-chatbot</b>
+<ol>
+<li>The website has a simple chat robot that navigates to links within the website. This is implemented using <b>React-simple-chatbot</b></li>
 2.The website has a zoom in feature in order for users to zoom in on clothing items to get a better view of the product.
 3.The website has a payment section that takes credit card information implemented through Stripe Checkout API.
 4.The about page, has information about the designer and a live map for store locations, implemented through Mapbox third-party API.
@@ -55,6 +56,7 @@ Note: In order to run this application locally, you will first need an API key f
   
   <ul>
   <h6>Back-End Tech Stack</h6>
+    <a href="https://github.com/ksolomon7/backend_mafi_mafi">Back-End Link</a>
   <li>Ruby on Rails</li>
   </ul>
   
@@ -63,10 +65,12 @@ Note: In order to run this application locally, you will first need an API key f
     <ul>
        <li>IBM Watson for the chat feature</li>
        <li>Improving the UI Interface using User Center Design</li>
-       <li>Adding Mobile Responsiveness</li> 
+       <li>Add Mobile Responsiveness</li> 
+       <li>Add unit testing using JEST<.li> 
     </ul>
 
-<h3>Resources</h3>
+<h3>Acknowledgments</h3>
+I do not own any of the images or logos. If you would like to learn more please visit the<a href="https://www.instagram.com/mafimafi_et/?hl=en"><b>Mafi Mafi Instagram page</b></a>.
 
 <h3>Contributor</h3>
 <table>
