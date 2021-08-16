@@ -16,6 +16,7 @@ The website currently allows:
   <li>Users to browse through a list of products.</li>
   <li>Users to add/remove items from their carts</li>
   <li>Users to see their final order cost and previous orders in their account</li>
+  <li>Users to make secure purchases through Stripe Checkout</li>
 </ol>
 
 <h3>Features</h3>
