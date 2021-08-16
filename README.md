@@ -67,7 +67,7 @@ Note: In order to run this application locally, you will first need an API key f
        <li>IBM Watson for the chat feature</li>
        <li>Improving the UI Interface using User Center Design</li>
        <li>Add Mobile Responsiveness</li> 
-       <li>Add unit testing using JEST<.li> 
+       <li>Add unit testing using JEST</li> 
     </ul>
 
 <h3>Acknowledgments</h3>
