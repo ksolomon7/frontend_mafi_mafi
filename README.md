@@ -22,10 +22,10 @@ The website currently allows:
 The website has a few implemented stretch features:
 <ol>
 <li>The website has a simple chat robot that navigates to links within the website. This is implemented using <b>React-simple-chatbot</b></li>
-2.The website has a zoom in feature in order for users to zoom in on clothing items to get a better view of the product.
-3.The website has a payment section that takes credit card information implemented through Stripe Checkout API.
-4.The about page, has information about the designer and a live map for store locations, implemented through Mapbox third-party API.
-5.The user can filter product options through the search bar or through the burger menu.
+<li>The website has a zoom in feature in order for users to zoom in on clothing items to get a better view of the product.</li>
+<li>The website has a payment section that takes credit card information implemented through Stripe Checkout API.</li>
+<li>The about page, has information about the designer and a live map for store locations, implemented through Mapbox third-party API.</li>
+<li>The user can filter product options through the search bar or through the burger menu.</li>
 <hr>
 Check out the <a href="https://mafi-mafi.herokuapp.com/">live site</a>. 
 <img src="https://user-images.githubusercontent.com/57603757/129086022-7ad4ec9f-4610-41be-874a-9ee86aab47f9.png" alt="image of products page for mafi mafi">
