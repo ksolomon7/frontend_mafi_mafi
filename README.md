@@ -45,7 +45,7 @@ Note: In order to run this application locally, you will first need an API key f
 
 <h3>Tech Stack</h3>
   <ul>
-  <h6>Front-End Tech Stack</h6>
+  <h4>Front-End Tech Stack</h4>
   <li>React</li>
   <li>Semantic UI</li>
   <li>CSS</li>
@@ -55,7 +55,7 @@ Note: In order to run this application locally, you will first need an API key f
   </ul>
   
   <ul>
-  <h6>Back-End Tech Stack</h6>
+  <h4>Back-End Tech Stack</h4>
     <a href="https://github.com/ksolomon7/backend_mafi_mafi">Back-End Link</a>
   <li>Ruby on Rails</li>
   </ul>
